@@ -51,29 +51,49 @@ h2 {
 }
 
 p {
-  max-width: 600px;
+  max-width: 800px;
   font-size: 1.15rem;
   line-height: 1.7;
 }
 
-/* kolumner för moodboard som bilderna läggs in i */
+/* moodboarden rutnät 6 kolumner så att bilderna kan ta olika mycket plats */
 .moodboard {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
 }
 
-/* bilderna i kolumnen */
-.moodboard img {
+.moodboard .wide  { grid-column: span 6; }
+.moodboard .third { grid-column: span 2; }
+.moodboard .half  { grid-column: span 3; }
+
+/* bilder & videos samma stil */
+.moodboard img,
+.moodboard video {
+  display: block;
   width: 100%;
-  height: 400px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 32px;
+  border-radius: 20px;
+  background: #120626;
+  border: 1px solid rgba(204, 0, 255, 0.25);
+}
+
+/* bilderna i mittenraden är lite högre */
+.moodboard .third img,
+.moodboard .third video {
+  aspect-ratio: 4 / 3;
+}
+
+.moodboard img.hel {
+  object-fit: contain;
 }
 
 /* bildtext t moodboarden */
 .moodboard figcaption {
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: gray;
+  color: #8a7f99;
 }
